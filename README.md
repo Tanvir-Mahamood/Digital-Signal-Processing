@@ -24,7 +24,7 @@ t_continuous = np.linspace(tmin, tmax, 1000)
 y_continuous = np.sin(2 * np.pi * frequency * t_continuous)
 ```
 
-![Analog Signal](ScreenShots/01.jpg)
+![Analog Signal](https://github.com/Tanvir-Mahamood/Digital-Signal-Processing/blob/main/Screenshots/01.jpg)
 
 ## 2. Sampling
 
@@ -35,7 +35,7 @@ t_discrete = np.arange(tmin, tmax, 1/sampling_frequency)
 y_discrete = np.sin(2 * np.pi * frequency * t_discrete)
 ```
 
-![Sampling](ScreenShots/02.jpg)
+![Sampling](https://github.com/Tanvir-Mahamood/Digital-Signal-Processing/blob/main/Screenshots/02.jpg)
 
 ## 3. Quantization
 
@@ -47,7 +47,7 @@ quantization_step = (max_val - min_val) / (level - 1)
 y_quantized = np.round(y_discrete / quantization_step) * quantization_step
 ```
 
-![Quantization](ScreenShots/03.jpg)
+![Quantization](https://github.com/Tanvir-Mahamood/Digital-Signal-Processing/blob/main/Screenshots/03.jpg)
 
 ## 4. Elementary Discrete-Time Signals
 
@@ -77,7 +77,7 @@ for i in range(len(n)):
         unit_ramp[i] = n[i]
 ```
 
-![Elementary Discrete-Time Signals](ScreenShots/04.jpg)
+![Elementary Discrete-Time Signals](https://github.com/Tanvir-Mahamood/Digital-Signal-Processing/blob/main/Screenshots/04.jpg)
 
 ## 5. Elementary Operations on Discrete-Time Signals
 
@@ -96,7 +96,7 @@ mul = y1 * y2
 scalar_mul = y1 * 2
 ```
 
-![Elementary Operations on Discrete-Time Signals](ScreenShots/05.jpg)
+![Elementary Operations on Discrete-Time Signals](https://github.com/Tanvir-Mahamood/Digital-Signal-Processing/blob/main/Screenshots/05.jpg)
 
 ## 6. Shifting
 
@@ -109,8 +109,8 @@ for n in range(left - k, right - k + 1):
     if n + k in x:
         y[n] = x[n + k]
 ```
-![Left Shifting](ScreenShots/06_l.jpg)
-![Right Shifting](ScreenShots/06_r.jpg)
+![Left Shifting](https://github.com/Tanvir-Mahamood/Digital-Signal-Processing/blob/main/Screenshots/06_l.jpg)
+![Right Shifting](https://github.com/Tanvir-Mahamood/Digital-Signal-Processing/blob/main/Screenshots/06_r.jpg)
 
 ## 7. Scaling
 
@@ -135,8 +135,8 @@ for n in range(l, r+1):
         y[n] = interpolation(math.floor(key), math.ceil(key))
 ```
 
-![Up Scaling](ScreenShots/07_u.jpg)
-![Down Scaling](ScreenShots/07_d.jpg)
+![Up Scaling](https://github.com/Tanvir-Mahamood/Digital-Signal-Processing/blob/main/Screenshots/07_u.jpg)
+![Down Scaling](https://github.com/Tanvir-Mahamood/Digital-Signal-Processing/blob/main/Screenshots/07_d.jpg)
 
 ## 8. Reversal
 
@@ -148,29 +148,29 @@ for i in range(-right, -left+1):
     y[i] = x[-i]
 ```
 
-![Reversal](ScreenShots/08.jpg)
+![Reversal](https://github.com/Tanvir-Mahamood/Digital-Signal-Processing/blob/main/Screenshots/08.jpg)
 
 ## 9. Convolution
 
 Convolution helps determine how two signals interact. Three approaches are implemented:
 1. **Manual Convolution:** Using the convolution summation formula.
 2. **Using `np.convolve()` Function:** Built-in NumPy function, [convolve()](https://numpy.org/doc/2.1/reference/generated/numpy.convolve.html) for efficient computation.
-![Convolution](ScreenShots/conv.jpg)
+![Convolution](https://github.com/Tanvir-Mahamood/Digital-Signal-Processing/blob/main/Screenshots/conv.jpg)
 3. **Noise Removal using Convolution:** Using convolution with a smoothing kernel to filter noise.
-![Noise Remover](ScreenShots/noiseremover.jpg)
+![Noise Remover](https://github.com/Tanvir-Mahamood/Digital-Signal-Processing/blob/main/Screenshots/noiseremover.jpg)
 
 ## 10. Correlation
 
 Correlation measures similarity between signals:
 1. **Manual Correlation:** Computed using the mathematical formula.
-![Correlation](ScreenShots/corr.jpg)
+![Correlation](https://github.com/Tanvir-Mahamood/Digital-Signal-Processing/blob/main/Screenshots/corr.jpg)
 2. **Autocorrelation:** Determines periodicity in signals using:
    \[ R_x[k] = \sum x[n] x[n+k] \]
    Implemented both manually and using [np.correlate()](https://numpy.org/doc/2.1/reference/generated/numpy.correlate.html).
-   ![Auto Correlation](ScreenShots/auto.jpg)
+   ![Auto Correlation](https://github.com/Tanvir-Mahamood/Digital-Signal-Processing/blob/main/Screenshots/auto.jpg)
 3. **Harmonic Signal Generation:** A composite signal made by summing sinusoidal signals of different frequencies:
 This harmonic signal represents a sum of sine waves with increasing frequencies, useful for analyzing periodicity.
-![Harmonic Signal](ScreenShots/harmonic.jpg)
+![Harmonic Signal](https://github.com/Tanvir-Mahamood/Digital-Signal-Processing/blob/main/Screenshots/harmonic.jpg)
 
 ---
 
