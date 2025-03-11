@@ -169,6 +169,11 @@ Correlation measures similarity between signals:
 2. **Autocorrelation:** Determines periodicity in signals using:
    Implemented both manually and using [np.correlate()](https://numpy.org/doc/2.1/reference/generated/numpy.correlate.html).
    ![Auto Correlation](https://github.com/Tanvir-Mahamood/Digital-Signal-Processing/blob/main/Screenshots/auto.jpg)
+
+> [!IMPORTANT]
+> Your sine wave is sampled over a limited number of points. Unlike an infinitely long sine wave, a finite-length signal gradually loses energy as you shift it further. This causes the autocorrelation amplitude to decrease over time.
+
+
 3. **Harmonic Signal Generation:** A composite signal made by summing sinusoidal signals of different frequencies:
 This harmonic signal represents a sum of sine waves with increasing frequencies, useful for analyzing periodicity.
 ![Harmonic Signal](https://github.com/Tanvir-Mahamood/Digital-Signal-Processing/blob/main/Screenshots/harmonic.jpg)
