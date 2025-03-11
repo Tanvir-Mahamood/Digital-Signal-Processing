@@ -52,9 +52,9 @@ y_quantized = np.round(y_discrete / quantization_step) * quantization_step
 ## 4. Elementary Discrete-Time Signals
 
 These basic signals form the foundation for DSP operations:
-- **Unit Sample Signal (Impulse Function, \( \delta[n] \))**: A signal that is 1 at \( n=0 \) and 0 elsewhere.
-- **Unit Step Signal (\( u[n] \))**: A signal that is 1 for \( n \geq 0 \) and 0 otherwise.
-- **Unit Ramp Signal (\( r[n] \))**: A signal that increases linearly with \( n \).
+- **Unit Sample Signal (Impulse Function, δ(n))**: A signal that is 1 at \( n=0 \) and 0 elsewhere.
+- **Unit Step Signal (u(n))**: A signal that is 1 for \( n \geq 0 \) and 0 otherwise.
+- **Unit Ramp Signal (ur(n))**: A signal that increases linearly with \( n \).
 
 ```python
 #unit Sample Sequence
@@ -140,8 +140,8 @@ for n in range(l, r+1):
 
 ## 8. Reversal
 
-Time reversal flips the signal around \( n=0 \):
-\[ y[n] = x[-n] \]
+Time reversal flips the signal around ( n=0 ):
+y[n] = x[-n]
 
 ```python
 for i in range(-right, -left+1):
@@ -153,11 +153,13 @@ for i in range(-right, -left+1):
 ## 9. Convolution
 
 Convolution helps determine how two signals interact. Three approaches are implemented:
-1. **Manual Convolution:** Using the convolution summation formula.
-2. **Using `np.convolve()` Function:** Built-in NumPy function, [convolve()](https://numpy.org/doc/2.1/reference/generated/numpy.convolve.html) for efficient computation.
+1. **Manual Convolution:** Using the convolution summation formula. 
+2. **Using `np.convolve()` Function:** Built-in NumPy function, [convolve()](https://numpy.org/doc/2.1/reference/generated/numpy.convolve.html) for efficient computation. 
 ![Convolution](https://github.com/Tanvir-Mahamood/Digital-Signal-Processing/blob/main/Screenshots/conv.jpg)
-3. **Noise Removal using Convolution:** Using convolution with a smoothing kernel to filter noise.
+
+3. **Noise Removal using Convolution:** Using convolution with a smoothing kernel to filter noise. 
 ![Noise Remover](https://github.com/Tanvir-Mahamood/Digital-Signal-Processing/blob/main/Screenshots/noiseremover.jpg)
+<br>
 
 ## 10. Correlation
 
@@ -165,7 +167,6 @@ Correlation measures similarity between signals:
 1. **Manual Correlation:** Computed using the mathematical formula.
 ![Correlation](https://github.com/Tanvir-Mahamood/Digital-Signal-Processing/blob/main/Screenshots/corr.jpg)
 2. **Autocorrelation:** Determines periodicity in signals using:
-   \[ R_x[k] = \sum x[n] x[n+k] \]
    Implemented both manually and using [np.correlate()](https://numpy.org/doc/2.1/reference/generated/numpy.correlate.html).
    ![Auto Correlation](https://github.com/Tanvir-Mahamood/Digital-Signal-Processing/blob/main/Screenshots/auto.jpg)
 3. **Harmonic Signal Generation:** A composite signal made by summing sinusoidal signals of different frequencies:
