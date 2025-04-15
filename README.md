@@ -14,7 +14,7 @@ This repository contains Python implementations of fundamental concepts in Digit
 - [8. Reversal](#8-reversal)
 - [9. Convolution](#9-convolution)
 - [10. Correlation](#10-correlation)
-- [11. Fourier Series](#-11-Fourier Series)
+- [11. Fourier Series](#11-fourier-series)
 
 ## 1. Creating an Analog Signal
 
@@ -190,15 +190,15 @@ It contains experiments and implementations related to **Fourier Series**. The e
 1. **Harmonic Signal (Sum of Sine Waves)**
 To demonstrate that a periodic signal can be represented as a sum of sine signals (Fourier Series).
 
-### **Procedure**
+**Procedure**
 1. Generated multiple sine waves with different frequencies (harmonics).
 2. Summed them to produce a periodic signal.
 3. Observed that the resulting signal is periodic.
 
-### **Results**
+**Results**
 The following image shows the individual sine waves and their summation, which forms a periodic signal:
 
-![Harmonic Signal Summation](harmonic_signal_sum.jpg) *(Replace with your image filename)*
+![Harmonic Signal Summation](https://github.com/Tanvir-Mahamood/Digital-Signal-Processing/blob/main/Screenshots/f1.jpg) 
 
 ```python
 t = np.arange(tmin, tmax, 1/sampling_frequency)
@@ -215,7 +215,7 @@ for i in range(50):
 2. **Fourier Coefficients of a Square Wave**
 To analyze the Fourier coefficients C<sub>k</sub> of a square wave, plot its **frequency-domain representation**, **Power Spectrum** and **Reconstruct the signal** from its Fourier coefficients.
 
-### **Procedure**
+**Procedure**
 1. Computed the Fourier coefficients C<sub>k</sub> of a square wave.
 Here, C<sub>k</sub> = $$\frac{A.a.sin(π.k.F)}{T.π.K.F}$$
 2. Plotted the **magnitude spectrum** (frequency domain, C<sub>k</sub>).
@@ -244,6 +244,9 @@ for i, ki in enumerate(k):
 x_t = np.real(x_t)
 
 ```
+
+![Fourier](https://github.com/Tanvir-Mahamood/Digital-Signal-Processing/blob/main/Screenshots/f2.jpg) 
+
 
 
 
