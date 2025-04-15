@@ -14,6 +14,7 @@ This repository contains Python implementations of fundamental concepts in Digit
 - [8. Reversal](#8-reversal)
 - [9. Convolution](#9-convolution)
 - [10. Correlation](#10-correlation)
+- [11. Fourier Series](#-11-Fourier Series)
 
 ## 1. Creating an Analog Signal
 
@@ -180,24 +181,69 @@ This harmonic signal represents a sum of sine waves with increasing frequencies,
 
 ---
 
-## How to Run
+## 11. Fourier Series
 
-1. Install the required libraries:
-   ```bash
-   pip install numpy matplotlib
-   pip install numpy
-   ```
-2. Run each script in a Python environment:
-   ```bash
-   python script_name.py
-   ```
-3. Output plots will be displayed for visualization.
+It contains experiments and implementations related to **Fourier Series**. The experiments demonstrate how periodic signals can be decomposed into sine/cosine components (Fourier Series) and reconstructed from their frequency-domain representations.
 
 ---
 
-## Acknowledgments
+1. **Harmonic Signal (Sum of Sine Waves)**
+To demonstrate that a periodic signal can be represented as a sum of sine signals (Fourier Series).
 
-This repository serves as a reference for understanding fundamental DSP operations using Python. The concepts implemented are widely used in signal processing, communications, and control systems.
+### **Procedure**
+1. Generated multiple sine waves with different frequencies (harmonics).
+2. Summed them to produce a periodic signal.
+3. Observed that the resulting signal is periodic.
 
-Happy Coding! 🚀
+### **Results**
+The following image shows the individual sine waves and their summation, which forms a periodic signal:
+
+![Harmonic Signal Summation](harmonic_signal_sum.jpg) *(Replace with your image filename)*
+
+```python
+t = np.arange(tmin, tmax, 1/sampling_frequency)
+y = np.sin(2 * np.pi * frequency * t)
+Y = 0
+
+for i in range(50):
+    Y += np.sin(2 * np.pi * (frequency + 2*i) * t)
+
+```
+
+---
+
+2. **Fourier Coefficients of a Square Wave**
+To analyze the Fourier coefficients C<sub>k</sub> of a square wave, plot its **frequency-domain representation**, **Power Spectrum** and **Reconstruct the signal** from its Fourier coefficients.
+
+### **Procedure**
+1. Computed the Fourier coefficients C<sub>k</sub> of a square wave.
+Here, C<sub>k</sub> = $$\frac{A.a.sin(π.k.F)}{T.π.K.F}$$
+2. Plotted the **magnitude spectrum** (frequency domain, C<sub>k</sub>).
+3. Plotted the **power spectrum** (squared magnitude of |C<sub>k</sub>|<sup>2</sup>).
+4. Reconstructed the square wave using the Fourier coefficients.
+The square wave was successfully reconstructed using Fourier coefficients, demonstrating the **synthesis** capability of Fourier Series.
+x(t) = Σ Cₖ · e^(j·2π·k·f₀·t)
+
+```python
+# Fourier Coefficients
+Ck = np.zeros_like(k, dtype=np.float64)
+Ck[k != 0] = (A * a * np.sin(np.pi * k[k != 0] * Fa)) / (Tp * np.pi * k[k != 0] * Fa)
+Ck[k == 0] = A * a / Tp
+
+# Power Spectrum
+Pk = np.abs(Ck) ** 2
+
+# Time and Reconstructed Signal
+# t = np.linspace(0, Tp, 1000)
+T_show = 4 * Tp  # e.g., 4 full periods
+t = np.linspace(0, T_show, 4000)
+
+x_t = np.zeros_like(t, dtype=np.complex128)
+for i, ki in enumerate(k):
+    x_t += Ck[i] * np.exp(1j * 2 * np.pi * ki * Fa * t)
+x_t = np.real(x_t)
+
+```
+
+
 
